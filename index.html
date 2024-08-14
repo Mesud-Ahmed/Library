@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&family=Mooli&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&family=Matemasie&family=Mooli&display=swap"
+        rel="stylesheet">
+    <script src="script.js"></script>
+    <style>
+        body {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            grid-template-rows: auto 1fr auto;
+            grid-template-areas:
+                "header header"
+                "section main"
+                "footer footer";
+            gap: 5px 0;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            grid-area: header;
+            background-color: lightblue;
+            padding: 10px;
+            text-align: center;
+        }
+
+        section {
+            grid-area: section;
+            background-color: #FEFAE0;
+            padding: 10px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            background-image: url(janko-ferlic-sfL_QOnmy00-unsplash.jpg);
+            /* Center vertically */
+        }
+
+        main {
+            grid-area: main;
+            background-image: url(janko-ferlic-sfL_QOnmy00-unsplash.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #697565;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 280px));
+            /* Adjust minmax value based on your needs */
+            gap: 10px;
+            grid-template-rows: min-content;
+            /* Space between grid items */
+            padding: 10px;
+            text-align: center;
+        }
+
+        footer {
+            grid-area: footer;
+            background-color: lightgoldenrodyellow;
+            padding: 10px;
+            text-align: center;
+            font-size: 1.2rem;
+            
+        }
+
+        form>div {
+            display: flex;
+            padding: 10px;
+            align-items: center;
+            /* Center label and input horizontally */
+
+        }
+        form:hover{
+            opacity: 1;
+        }
+        form {
+            box-shadow: 4px 4px 12px 4px rgba(0, 0, 0, 0.5);
+            padding: 15px 5px;
+            border-radius: 10px;
+            background-color: #DFD3C3;
+            font-family: "Mooli", sans-serif;
+            opacity: 0.5;
+        }
+        form input{
+            padding: 3px;
+            border-radius: 5px;
+            border-style: none;
+            font-family: "Mooli", sans-serif;
+        }
+        
+
+        button {
+            padding: 10px 20px;
+
+            font-size: 16px;
+
+            color: white;
+
+            background-color: #007bff;
+
+            border: none;
+
+            border-radius: 4px;
+
+            cursor: pointer;
+
+            transition: background-color 0.3s;
+
+        }
+
+        button:hover,
+        .toggleRead {
+            background-color: #0056b3;
+            /* Darker background on hover */
+        }
+
+        form label {
+            font-size: 20px;
+            /* Adjust font size */
+            color: #333;
+            /* Set text color */
+            margin-bottom: 5px;
+            /* Space between label and input */
+            padding-right: 5px;
+        }
+
+        .card {
+            background-color: #F2E8C6;
+            width: 250px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: "Anek Devanagari", sans-serif;
+        }
+
+        .deleteBook {
+            color: aliceblue;
+            background-color: red;
+            border: none;
+            padding: 5px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .toggleRead {
+            color: white;
+            background-color: green;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 15px;
+        }
+
+        .read-status {
+            margin: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>My Library</h1>
+    </header>
+    <section>
+        <form action="#" id="myForm">
+            <div>
+                <label for="title">Title</label>
+                <input type="text" id="title" required>
+            </div>
+
+            <div>
+                <label for="author">Author</label>
+                <input type="text" id="author" required>
+            </div>
+
+            <div>
+                <label for="pages">Pages</label>
+                <input type="number" id="pages" required>
+            </div>
+
+
+            <div>
+                <label for="read">I have read</label>
+                <input type="checkbox" id="read">
+            </div>
+
+            <button type="submit">Add Book</button>
+        </form>
+    </section>
+    <main>
+
+    </main>
+
+    <footer>
+        <p>“So many books, so little time.” -- Frank Zappa</p>
+    </footer>
+
+</body>
+
+</html>
