@@ -1,48 +1,45 @@
 document.addEventListener('DOMContentLoaded', () => {
-    let title, author, pages, checkValue;
+
     const form = document.querySelector("#myForm");
     const main = document.querySelector("main");
-    const mylibrary = [
-        {
-            
-        }
-    ];
+    const mylibrary = [ ];
 
-   
+
 
     form.addEventListener("submit", (event) => {
         event.preventDefault();
 
-        title = document.querySelector("#title").value;
-        author = document.querySelector("#author").value;
-        pages = document.querySelector("#pages").value;
-        const checkbox = document.querySelector("#read");
+        const title = document.querySelector("#title").value;
+        const author = document.querySelector("#author").value;
+        const pages = document.querySelector("#pages").value;
+        const checkValue = document.querySelector("#read").checked ? "Yes" : "Not yet";
 
-        checkValue = checkbox.checked ? "Yes" : "Not yet";
 
-        addBookToLibrary();
+        addBookToLibrary(new Book(title, author, pages, checkValue));
         form.reset();
     });
 
-    function Book(title, author, pages, read) {
-        this.title = title;
-        this.author = author;
-        this.pages = pages;
-        this.read = read;
+
+    class Book {
+        constructor(title, author, pages, read) {
+            this.title = title;
+            this.author = author;
+            this.pages = pages;
+            this.read = read;
+        }
+        toggleReadStatus() {
+            this.read = this.read === "Yes" ? "Not yet" : "Yes";
+        }
+
+
     }
-
-    Book.prototype.toggleReadStatus = function() {
-        this.read = this.read === "Yes" ? "Not yet" : "Yes";
-    };
-
-    function addBookToLibrary() {
-        const book = new Book(title, author, pages, checkValue);
+    function addBookToLibrary(book) {
         mylibrary.push(book);
         displayBooks(book);
     }
 
     function displayBooks(book) {
-        console.log('Displaying book:', book); // Debugging line
+
 
         const newBook = document.createElement("div");
         newBook.className = "card";
